@@ -1,0 +1,85 @@
+/* School Theme CSS */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #f6f8fc;
+}
+.label {
+    -fx-text-fill: #2a3b6e;
+}
+.button {
+    -fx-background-color: #2a3b6e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 6 16 6 16;
+    cursor: pointer;
+    -fx-effect: dropshadow(gaussian, #b0b8d1, 2, 0.2, 0, 1);
+}
+.button:hover {
+    -fx-background-color: #3e4a89;
+}
+.text-field, .password-field, .date-picker {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #b0b8d1;
+    -fx-border-width: 1;
+    -fx-padding: 4 8 4 8;
+    cursor: text;
+}
+.text-field:focused, .password-field:focused, .date-picker:focused {
+    -fx-border-color: #2a3b6e;
+}
+.tab-pane {
+    -fx-background-color: #e9ecf5;
+}
+.table-view {
+    -fx-background-color: #fff;
+    -fx-border-color: #b0b8d1;
+    -fx-border-radius: 5;
+}
+.table-row-cell:selected {
+    -fx-background-color: #d1eaff;
+}
+.table-row-cell:hover {
+    -fx-background-color: #e0eaff;
+    cursor: pointer;
+}
+.tab {
+    cursor: pointer;
+}
+
+.login-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2a3b6e;
+    -fx-padding: 0 0 20 0;
+}
+
+.login-input {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #b0b8d1;
+    -fx-border-width: 1;
+    -fx-padding: 8 12 8 12;
+    -fx-cursor: text;
+    -fx-font-size: 14px;
+}
+
+.login-input:focused {
+    -fx-border-color: #2a3b6e;
+}
+
+.login-button {
+    -fx-background-color: linear-gradient(to right, #2a3b6e, #3e4a89);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #b0b8d1, 4, 0.4, 0, 2);
+    -fx-font-size: 14px;
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to right, #3e4a89, #525fa4);
+}

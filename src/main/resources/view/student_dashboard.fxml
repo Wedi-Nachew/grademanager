@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.school.grademanager.controller.StudentDashboardController">
+    <top>
+        <VBox>
+            <MenuBar fx:id="menuBar">
+                <menus>
+                    <Menu text="Navigate">
+                        <MenuItem text="Profile" onAction="#showProfileTab" />
+                        <MenuItem text="Assessments" onAction="#showAssessmentsTab" />
+                    </Menu>
+                    <Menu text="Account">
+                        <MenuItem text="Logout" onAction="#handleLogout" />
+                        <MenuItem text="Exit" onAction="#handleExit" />
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <HBox alignment="TOP_RIGHT" spacing="10" style="-fx-padding: 10;">
+                <Label fx:id="welcomeLabel" text="Welcome, Student!" style="-fx-font-size: 18px;"/>
+                <Button text="Logout" onAction="#handleLogout" />
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane">
+            <tabs>
+                <Tab text="Profile" fx:id="profileTab">
+                    <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 20;">
+                        <Label text="Edit Profile" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                        <TextField fx:id="nameField" promptText="Full Name" />
+                        <TextField fx:id="classField" promptText="Class" editable="false"/>
+                        <TextField fx:id="emailField" promptText="Email" />
+                        <PasswordField fx:id="passwordField" promptText="Password" />
+                        <TextField fx:id="passwordTextField" promptText="Password" visible="false" managed="false" />
+                        <CheckBox fx:id="showPasswordCheckBox" text="Show Password" onAction="#toggleShowPassword" />
+                        <HBox spacing="10">
+                            <Button text="Save" onAction="#handleSaveProfile" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                        </HBox>
+                        <Label fx:id="profileStatusLabel" textFill="green" />
+                    </VBox>
+                </Tab>
+                <Tab text="Assessments" fx:id="assessmentTab">
+                    <VBox spacing="20" style="-fx-padding: 20;">
+                        <HBox spacing="20" alignment="CENTER_LEFT">
+                            <Label text="Semester" style="-fx-font-weight: bold;"/>
+                            <ComboBox fx:id="semesterCombo" promptText="Select semester..." prefWidth="200"/>
+                            <Label text="Subject" style="-fx-font-weight: bold;"/>
+                            <ComboBox fx:id="subjectCombo" promptText="Select subject..." prefWidth="200"/>
+                            <Button text="Export" onAction="#handleExportAssessments" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                        </HBox>
+                        <SplitPane dividerPositions="0.33">
+                            <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #fafbfc; -fx-background-radius: 8;">
+                                <Label text="Course Information" style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+                                <Label fx:id="courseTitleLabel" style="-fx-font-size: 13px;"/>
+                                <Label fx:id="instructorLabel" style="-fx-font-size: 13px;"/>
+                                <Label fx:id="academicYearLabel" style="-fx-font-size: 13px;"/>
+                                 <Label fx:id="totalMarksLabel" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="totalResultsLabel" style="-fx-font-weight: bold;"/>
+                            </VBox>
+                            <VBox spacing="10" style="-fx-padding: 10;">
+                                <TableView fx:id="assessmentTable" VBox.vgrow="ALWAYS" style="-fx-background-radius: 8;" >
+                                    <columns>
+                                        <TableColumn text="SN" fx:id="colSN" prefWidth="40"/>
+                                        <TableColumn text="Assessment Name" fx:id="colTitle" prefWidth="180"/>
+                                        <TableColumn text="Assessment Type" fx:id="colType" prefWidth="100"/>
+                                        <TableColumn text="Maximum Mark" fx:id="colTotalMarks" prefWidth="100"/>
+                                        <TableColumn text="Result" fx:id="colMarksObtained" prefWidth="100"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                        </SplitPane>
+                    </VBox>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

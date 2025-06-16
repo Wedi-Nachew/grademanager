@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.school.grademanager.controller.TeacherDashboardController">
+    <top>
+        <VBox>
+            <MenuBar fx:id="menuBar">
+                <menus>
+                    <Menu text="Navigate">
+                        <MenuItem text="Profile" onAction="#showProfileTab" />
+                        <MenuItem text="Student Management" onAction="#showStudentTab" />
+                        <MenuItem text="Assessment Management" onAction="#showAssessmentTab" />
+                    </Menu>
+                    <Menu text="Account">
+                        <MenuItem text="Logout" onAction="#handleLogout" />
+                        <MenuItem text="Exit" onAction="#handleExit" />
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <HBox alignment="TOP_RIGHT" spacing="10" style="-fx-padding: 10;">
+                <Label fx:id="welcomeLabel" text="Welcome, Teacher!" style="-fx-font-size: 18px;"/>
+                <Button text="Logout" onAction="#handleLogout" />
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane">
+            <tabs>
+                <Tab text="Profile" fx:id="profileTab">
+                    <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 20;">
+                        <Label text="Edit Profile" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                        <TextField fx:id="nameField" promptText="Full Name" />
+                        <TextField fx:id="emailField" promptText="Email" />
+                        <PasswordField fx:id="passwordField" promptText="Password" />
+                        <TextField fx:id="passwordTextField" promptText="Password" visible="false" managed="false" />
+                        <CheckBox fx:id="showPasswordCheckBox" text="Show Password" onAction="#toggleShowPassword" />
+                        <HBox spacing="10">
+                            <Button text="Save" onAction="#handleSaveProfile" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                        </HBox>
+                        <Label fx:id="profileStatusLabel" textFill="green" />
+                    </VBox>
+                </Tab>
+                <Tab text="Student Management" fx:id="studentTab">
+                    <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 20;">
+                        <HBox spacing="10">
+                            <Label text="Class:" />
+                            <ComboBox fx:id="classFilterCombo" promptText="Select class..." />
+                            <TextField fx:id="studentSearchField" promptText="Search by name or ID..." />
+                            <Button text="Save All" onAction="#handleSaveAllGrades" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                        </HBox>
+                        <TableView fx:id="gradebookTable">
+                            <!-- Columns will be generated dynamically in the controller -->
+                        </TableView>
+                    </VBox>
+                </Tab>
+                <Tab text="Assessment Management" fx:id="assessmentTab">
+                    <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 20;">
+                        <HBox spacing="10">
+                            <Button text="Add Assessment" onAction="#handleAddAssessment" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                            <Button text="Edit Assessment" onAction="#handleEditAssessment" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                            <Button text="Delete Assessment" onAction="#handleDeleteAssessment" style="-fx-background-color: #f44336; -fx-text-fill: white;" />
+                            <Button text="Export Results (Class)" onAction="#handleExportResultsForClass" style="-fx-background-color: #FF9800; -fx-text-fill: white;" />
+                            <Button text="Export Results (Quiz)" onAction="#handleExportResultsForQuiz" style="-fx-background-color: #FF9800; -fx-text-fill: white;" />
+                        </HBox>
+                        <Label text="Note: Subject, Academic Year, and Semester are auto-filled from your profile/context." style="-fx-font-style: italic; -fx-padding: 0 0 10 0;"/>
+                        <TableView fx:id="assessmentTable" prefHeight="150">
+                            <columns>
+                                <TableColumn text="Title" fx:id="colAssessmentTitle" />
+                                <TableColumn text="Date" fx:id="colAssessmentDate" />
+                                <TableColumn text="Total Marks" fx:id="colAssessmentTotal" />
+                            </columns>
+                        </TableView>
+                        <Label text="Results for Selected Assessment:" style="-fx-font-weight: bold; -fx-padding: 10 0 0 0;"/>
+                        <TableView fx:id="resultTable" prefHeight="150">
+                            <columns>
+                                <TableColumn text="Student Name" fx:id="colResultStudent" />
+                                <TableColumn text="Marks Obtained" fx:id="colResultMarks" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.school.grademanager.controller.LoginController">
+    <children>
+        <VBox alignment="CENTER" spacing="10.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+            <Label text="Grade Manager Login" styleClass="login-title"/>
+            <TextField fx:id="usernameField" promptText="Username" styleClass="login-input"/>
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="login-input"/>
+            <Button text="Login" onAction="#handleLogin" maxWidth="Infinity" styleClass="login-button"/>
+        </VBox>
+    </children>
+</AnchorPane>
