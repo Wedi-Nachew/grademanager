@@ -167,5 +167,3 @@
 - Not queried for state
 - Better encapsulation
 
-## Conclusion
-This documentation provides a comprehensive overview of the design patterns and principles implemented in the application, their locations, purposes, and benefits. The implementation of these patterns and principles has resulted in a maintainable, scalable, and well-structured application. The use of these patterns and principles has helped create a robust and flexible system that can be easily extended and maintained. 
