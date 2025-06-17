@@ -121,7 +121,7 @@ src/
   - Database Integration
   - Documentation
 
-- **Gebremariam**
+- **Gebremeskel Abrha** (EITM/TUR181554/16)
   - UI Development
   - Feature Implementation
   - Testing and Bug Fixes
